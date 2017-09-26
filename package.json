@@ -1,0 +1,17 @@
+{
+  "name": "ltl-bunmyaku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "petitsurume",
+  "license": "MIT",
+  "dependencies": {
+    "pug": "^2.0.0-rc.4",
+    "riot": "^3.7.2",
+    "riot-tag-loader": "^1.0.0",
+    "webpack": "^3.6.0"
+  }
+}
