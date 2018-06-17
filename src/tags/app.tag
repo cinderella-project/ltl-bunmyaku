@@ -4,6 +4,7 @@ app-app
     p 投稿URL
         input(type="text",placeholder="https://mastodon.social/@Gargron/1",style={"width": "100%"},ref="text")
     button(type="submit",onclick="{get}") 取得！
+    p: a(href="https://github.com/cinderella-project/ltl-bunmyaku") GitHub
     #timeline
         app-post(post="{post}",each="{post in posts}")
     script.
