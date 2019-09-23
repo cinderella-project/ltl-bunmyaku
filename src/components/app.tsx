@@ -12,24 +12,13 @@ import {
 import { useState } from "react"
 import axios from "axios"
 import { format } from "date-fns"
-
-interface MastodonStatus {
-    id: string
-    content: string
-    url: string
-    account: {
-        avatar_static: string
-        display_name: string
-        acct: string
-        url: string
-    }
-    created_at: string
-}
+import { MastodonStatus } from "../interface/mastodon-status"
+import { Status } from "./status"
 
 export function App() {
     const [url, setUrl] = useState("")
     const [loading, setLoading] = useState(false)
-    const [posts, setPosts] = useState<MastodonStatus[]>([])
+    const [statuses, setStatuses] = useState<MastodonStatus[]>([])
 
     const regexResult = /https:\/\/(.+?)\/(?:@[a-zA-Z0-9_]+|users\/[a-zA-Z0-9_]+\/statuses)\/(\d+)/.exec(
         url
@@ -50,7 +39,7 @@ export function App() {
                 },
             }
         )
-        setPosts(res.data)
+        setStatuses(res.data)
         setLoading(false)
     }
 
@@ -78,36 +67,8 @@ export function App() {
             </Button>
             <hr />
             <ListGroup>
-                {posts.map(p => (
-                    <ListGroupItem>
-                        <Media>
-                            <Media left href={p.account.url}>
-                                <Media
-                                    object
-                                    src={p.account.avatar_static}
-                                    style={{ width: 64 }}
-                                />
-                            </Media>
-                            <Media body className="ml-4">
-                                <Media heading>
-                                    {p.account.display_name} (@{p.account.acct})
-                                </Media>
-                                <p
-                                    dangerouslySetInnerHTML={{
-                                        __html: p.content,
-                                    }}
-                                />
-                                <a href={p.url}>
-                                    <time>
-                                        {format(
-                                            new Date(p.created_at),
-                                            "yyyy/MM/dd HH:mm:SS"
-                                        )}
-                                    </time>
-                                </a>
-                            </Media>
-                        </Media>
-                    </ListGroupItem>
+                {statuses.map(s => (
+                    <Status status={s} key={s.id} />
                 ))}
             </ListGroup>
             <hr />
