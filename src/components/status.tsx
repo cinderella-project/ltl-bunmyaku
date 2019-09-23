@@ -14,7 +14,7 @@ export function Status({ status }: { status: MastodonStatus }) {
                         style={{ width: 64 }}
                     />
                 </Media>
-                <Media body className="ml-4">
+                <Media body className="ml-3">
                     <Media heading>
                         {status.account.display_name} (@{status.account.acct})
                     </Media>
