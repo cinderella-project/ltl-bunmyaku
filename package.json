@@ -10,6 +10,7 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "parcel ./src/index.html",
         "build": "parcel build ./src/index.html"
     },
     "author": "rinsuki",
@@ -20,12 +21,6 @@
         "react": "^16.9.0",
         "react-dom": "^16.9.0",
         "reactstrap": "^8.0.1"
-    },
-    "alias": {
-        "axios": "./src/imports/axios.js",
-        "react": "./src/imports/react.js",
-        "react-dom": "./src/imports/react-dom.js",
-        "reactstrap": "./src/imports/reactstrap.js"
     },
     "devDependencies": {
         "@types/react": "^16.9.2",
