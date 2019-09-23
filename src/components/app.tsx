@@ -24,8 +24,6 @@ export function App() {
         url
     )
 
-    console.log(regexResult)
-
     async function load() {
         if (regexResult == null) return
         setLoading(true)
